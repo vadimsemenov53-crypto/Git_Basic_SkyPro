@@ -68,7 +68,14 @@ cleared_names = clear_names("names.txt")
 # print(filter_russian_names(cleared_names))
 # print(filter_english_names(cleared_names))
 
-filtered_name = filter_russian_names(cleared_names)
+filtered_name_rus = filter_russian_names(cleared_names)
 save_file(
     'russian_names.txt',
-'\n'.join(filtered_name))
+'\n'.join(filtered_name_rus))
+
+filtered_name_eng = filter_english_names(cleared_names)
+save_file(
+    'english_names.txt',
+    '\n'.join(filtered_name_eng)
+)
+
