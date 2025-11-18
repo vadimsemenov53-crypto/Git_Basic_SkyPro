@@ -1,5 +1,5 @@
-import re
 import os
+import re
 
 
 def clear_names(file_names: str) -> list:
@@ -22,14 +22,15 @@ def clear_names(file_names: str) -> list:
 
     return new_names_list
 
+
 def is_cirillic(name_item: str) -> bool:
     """Проверка на вхождение кириллицы в строку"""
-    return bool(re.search('[а-яА-Я]', name_item))
+    return bool(re.search("[а-яА-Я]", name_item))
 
 
 def is_english(name_item: str) -> bool:
     """Проверка на вхождение английских букв в строку"""
-    return bool(re.search('[a-zA-Z]', name_item))
+    return bool(re.search("[a-zA-Z]", name_item))
 
 
 def filter_russian_names(names_list: list) -> list:
@@ -54,7 +55,7 @@ def filter_english_names(names_list: list) -> list:
     return english_names_list
 
 
-def save_file(file_name:str, data: str) -> None:
+def save_file(file_name: str, data: str) -> None:
     """Функция создает отдельные файлы с именами"""
     base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     full_path = os.path.join(base_path, "data", file_name)
