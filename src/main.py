@@ -54,9 +54,21 @@ def filter_english_names(names_list: list) -> list:
     return english_names_list
 
 
-cleared_names = clear_names("names.txt")
-# for name in cleared_names:
-#     print(name)
+def save_file(file_name:str, data: str) -> None:
+    """Функция создает отдельные файлы с именами"""
+    base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    full_path = os.path.join(base_path, "data", file_name)
 
-print(filter_russian_names(cleared_names))
-print(filter_english_names(cleared_names))
+    with open(full_path, "w") as name_list:
+        name_list.write(data)
+
+
+
+cleared_names = clear_names("names.txt")
+# print(filter_russian_names(cleared_names))
+# print(filter_english_names(cleared_names))
+
+filtered_name = filter_russian_names(cleared_names)
+save_file(
+    'russian_names.txt',
+'\n'.join(filtered_name))
